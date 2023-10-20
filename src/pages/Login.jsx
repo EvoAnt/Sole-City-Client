@@ -28,7 +28,7 @@ const Login = () => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/profile");
+        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -39,6 +39,7 @@ const Login = () => {
   return (
     <div className="LoginPage">
       <h1>Login</h1>
+      <p>Test User: username: test@test.com password: 1234</p>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>

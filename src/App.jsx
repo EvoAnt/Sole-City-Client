@@ -4,6 +4,10 @@ import Home from './pages/Home'
 import MyAccount from './pages/MyAccount'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import AllProducts from "./pages/AllProducts";
+import ProductDetails from "./pages/ProductDetails";
+import AddProduct from "./pages/AddProduct";
+import EditProduct from "./pages/EditProduct";
 import './App.css'
 
 function App() {
@@ -26,10 +30,15 @@ function App() {
       <Navbar />
 
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/my-account" element={<MyAccount />} />
+        <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/products/:productId" element={<ProductDetails />} />
+        <Route path="/products/add-product" element={<AddProduct />} />
+        <Route path="/products/edit/:productId" element={<EditProduct />} />
 
+        <Route path="/my-account" element={<MyAccount />} />
 
 
 
