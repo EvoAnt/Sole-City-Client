@@ -54,7 +54,7 @@ const EditProduct = () => {
 
   const deleteProduct = () => {
     // Make a DELETE request to delete the project
-    axiosDelete(`/products/${productId}`)
+    axiosDelete(`/products/edit/${productId}`)
       .then((response) => {
         console.log("Deleted Product ==>", response.data);
         // Once the delete request is resolved successfully
