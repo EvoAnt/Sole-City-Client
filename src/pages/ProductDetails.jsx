@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { get } from "../services/authService";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, } from "react-router-dom";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState('')
+  const [cart, setCart] = useState([])
+  
 
   const { productId } = useParams();
 
@@ -22,7 +25,17 @@ const ProductDetails = () => {
     getProduct(productId);
   }, []);
 
-  const sizeOptions = ["6", "7", "8", "9", "10", "11", "12"];
+  const addToCart = () => {
+    const cartItem = {
+      product: product,
+      size: selectedSize,
+    };
+
+    // Add the item to the cart
+    setCart([...cart, cartItem]);
+    
+    console.log(`${productId} added to cart`)
+  }
 
   return (
     <div className="ProductDetails">
@@ -36,8 +49,13 @@ const ProductDetails = () => {
           <h1>{product.name}</h1>
           <h3>${product.price}</h3>
           <p>Description: {product.description}</p>
-          <label for="dropdown">Select a Size:</label>
-          <select id="dropdown" name="size">
+         <label htmlFor="dropdown">Select a Size:</label>
+          <select
+            id="dropdown"
+            name="size"
+            value={selectedSize}
+            onChange={(e) => setSelectedSize(e.target.value)}
+          >
             <option value="6">6 US M</option>
             <option value="6.5">6.5 US M</option>
             <option value="7">7 US M</option>
@@ -56,7 +74,7 @@ const ProductDetails = () => {
             <option value="14">14 US M</option>
             
           </select>
-          <button type="submit">Add to Cart</button>
+          <button type="button" onClick={addToCart}>Add to Cart</button>
         </>
       )}
 

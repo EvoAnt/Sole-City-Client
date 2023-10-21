@@ -8,6 +8,7 @@ import AllProducts from "./pages/AllProducts";
 import ProductDetails from "./pages/ProductDetails";
 import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
+import ShoppingCart from "./pages/ShoppingCart";
 import './App.css'
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
         <Route path="/products/:productId" element={<ProductDetails />} />
         <Route path="/products/add-product" element={<AddProduct />} />
         <Route path="/products/edit/:productId" element={<EditProduct />} />
-
+        <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/my-account" element={<MyAccount />} />
 
 
