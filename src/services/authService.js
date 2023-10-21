@@ -17,3 +17,19 @@ export const post = (route, body) => {
     headers: { Authorization: `Bearer ${token}` },
   })
 };
+
+export const put = (route, body) => {
+  let token = localStorage.getItem("authToken");
+
+  return axios.put(API_URL + route, body, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+export const axiosDelete = (route) => {
+  let token = localStorage.getItem("authToken");
+
+  return axios.delete(API_URL + route, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
