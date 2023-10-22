@@ -88,6 +88,15 @@ body {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media (max-width: 768px) {
+  .ProductCard {
+    width: 80%; /* Adjust the width to occupy most of the screen */
+    margin: 10px auto; /* Center-align the card horizontally with some top margin */
+    padding: 10px;
+  }
+}
+
 .ProductCard img {
   height: 25vh;
 }
