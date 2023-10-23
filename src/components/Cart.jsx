@@ -9,7 +9,7 @@ const Cart = ({ cart }) => {
           {cartItems.map((cartItem, index) => (
             <li key={index}>
               <div>
-                <h3>{cartItem.quantity}</h3>
+                <h3>{cartItem.name}</h3>
                 <p>Size: {cartItem.size}</p>
                 <p>Price: ${cartItem.price.toFixed(2)}</p>
               </div>

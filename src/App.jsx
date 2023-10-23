@@ -1,9 +1,9 @@
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import MyAccount from './pages/MyAccount'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import MyAccount from "./pages/MyAccount";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import AllProducts from "./pages/AllProducts";
 import ProductDetails from "./pages/ProductDetails";
 import AddProduct from "./pages/AddProduct";
@@ -11,11 +11,9 @@ import EditProduct from "./pages/EditProduct";
 import ShoppingCart from "./pages/ShoppingCart";
 import EditMyAccount from "./pages/EditMyAccount";
 import Footer from "./components/Footer";
-import './App.css'
-
+import "./App.css";
 
 function App() {
-
   const getToken = () => {
     return localStorage.getItem("authToken");
   };
@@ -27,12 +25,10 @@ function App() {
   const NotLoggedIn = () => {
     return !getToken() ? <Outlet /> : <Navigate to="/" />;
   };
-  
 
   return (
     <div>
       <Navbar />
-      
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -45,20 +41,11 @@ function App() {
         <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/my-account" element={<MyAccount />} />
         <Route path="/edit/my-account" element={<EditMyAccount />} />
-
-
-
-
       </Routes>
-
-
-
-
-
 
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

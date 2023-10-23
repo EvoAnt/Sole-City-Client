@@ -28,7 +28,7 @@ function CartProvider({ children }) {
   return (
     <CartContext.Provider
       value={{
-        cart
+        cart, setCart
       }}
     >
       {children}

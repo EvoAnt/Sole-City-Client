@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { get, post } from "../services/authService";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import { CartContext } from "../context/cart.context";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("6");
-  const [cart, setCart] = useState([]);
+  const {cart, setCart} = useContext(CartContext)
+
+  const navigate = useNavigate();
+
+  const { user, isLoggedIn } = useContext(AuthContext);
 
   const { productId } = useParams();
 
@@ -22,9 +28,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     getProduct(productId);
-  }, []);
-
-
+  }, [productId]);
 
   //Need to fix this//
   const addToCart = () => {
@@ -34,17 +38,21 @@ const ProductDetails = () => {
       price: product.price,
       size: selectedSize,
       name: product.name,
-      image: product.image
+      image: product.image,
+    };
+
+    if (isLoggedIn) {
+      post(`/cart/add-item/${user._id}`, requestBody)
+        .then((response) => {
+          console.log(`${product.name} added to cart`);
+          setCart(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      navigate("/login");
     }
-    
-    post("/cart/create", requestBody)
-      .then((response) => {
-        console.log(`${product.name} added to cart`);
-        setCart(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   return (
