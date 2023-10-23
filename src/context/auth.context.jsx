@@ -70,6 +70,7 @@ function AuthProvider({ children }) {
         isLoggedIn,
         isLoading,
         user,
+        setUser,
         storeToken,
         authenticateUser,
         logOutUser,

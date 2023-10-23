@@ -71,7 +71,7 @@ button:focus-visible {
 body {
   margin: 0;
   padding: 0;
-  background-color: #e8e8e8;
+  /* background-color: #e8e8e8; */
   /* background-image: url('../public/sole-city-background.jpg');
   background-size:initial */
 }
@@ -110,7 +110,9 @@ body {
 }
 
 .ProductDetails img {
-  height: 35vh;
+  height: 45vh;
+  border-radius: 10%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar {
@@ -145,4 +147,35 @@ button {
   color: white;
   border: none;
   height: 2em;
+  transition: background-color 0.3s, transform 0.1s; /* Add a transition for color change and transform */
+
+  /* Add a hover effect for color change */
+  &:hover {
+    background-color: darkred;
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+
+  /* Add a button press animation */
+  &:active {
+    transform: scale(0.95); /* Slightly scale down the button when pressed */
+  }
+}
+
+.footer-container {
+  
+  bottom: 0;
+  width: 100%;
+  /* background-color: #f5f5f5;  */
+  padding: 10px;
+  text-align: center;
+}
+
+.new-releases-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.top-sellers-container {
+  display: flex;
+  flex-wrap: wrap;
 }

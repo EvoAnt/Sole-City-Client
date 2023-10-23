@@ -10,7 +10,9 @@ import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
 import ShoppingCart from "./pages/ShoppingCart";
 import EditMyAccount from "./pages/EditMyAccount";
+import Footer from "./components/Footer";
 import './App.css'
+
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -53,7 +56,7 @@ function App() {
 
 
 
-
+      <Footer />
     </div>
   )
 }

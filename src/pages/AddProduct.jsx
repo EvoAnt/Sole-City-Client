@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { post } from "../services/authService";
+import { Link } from "react-router-dom";
 
 const AddProduct = () => {
   const [newProduct, setNewProduct] = useState({
@@ -38,6 +39,13 @@ const AddProduct = () => {
   return (
     <div className="AddProductPage">
       <h2>AddProduct</h2>
+
+      <Link to="/all-products">
+        <button>Back</button>
+      </Link>
+
+      <br />
+      <br />
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -94,6 +102,8 @@ const AddProduct = () => {
             }
           />
         </div>
+        <br />
+        <br />
 
         <button type="submit">Add Product</button>
       </form>

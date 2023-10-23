@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { get } from "../services/authService";
+import { get, post } from "../services/authService";
 import { Link, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState("6");
   const [cart, setCart] = useState([]);
 
   const { productId } = useParams();
 
   const getProduct = (id) => {
-    get(`/products/${id}`)
+    get(`/products/details/${id}`)
       .then((response) => {
         console.log("Found Product ==>", response.data);
         setProduct(response.data);
@@ -28,18 +28,24 @@ const ProductDetails = () => {
 
   //Need to fix this//
   const addToCart = () => {
+
+    const requestBody = {
+      itemId: productId,
+      price: product.price,
+      size: selectedSize,
+      name: product.name,
+      image: product.image
+    }
     
-    post("/cart/create")
+    post("/cart/create", requestBody)
       .then((response) => {
-        console.log(`${productId} added to cart`);
+        console.log(`${product.name} added to cart`);
         setCart(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-
 
   return (
     <div className="ProductDetails">
