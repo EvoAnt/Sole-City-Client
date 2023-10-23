@@ -5,23 +5,33 @@ import { AuthContext } from "../context/auth.context";
 const MyAccount = () => {
   const { user } = useContext(AuthContext);
 
+  
+
   return (
     <div>
+      {user && (
+        <>
+          <h2>My Account</h2>
+          <h3>Welcome {user.name}!</h3>
+          <img src={user.image} alt="profile-img" />
 
-      {
-        
-        user && 
-        
-        <h2>Welcome {user.name}!</h2>
-        
-      }
+          <br />
 
-    <h2>My Account</h2>
+          <Link to={'/edit/my-account'}>
+            <button>Edit Account</button>
+          </Link>
 
-    <h2>My Wishlist</h2>
+          <h4>Shipping Address:
+            {user.address}
+          </h4>
 
-    <h2>My Orders</h2>
-    
+
+
+          <h2>My Wishlist</h2>
+
+          <h2>My Orders</h2>
+        </>
+      )}
     </div>
   );
 };

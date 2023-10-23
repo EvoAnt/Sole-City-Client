@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { get } from "../services/authService";
-import { Link, useParams, } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
-  const [selectedSize, setSelectedSize] = useState('')
-  const [cart, setCart] = useState([])
-  
+  const [selectedSize, setSelectedSize] = useState("");
+  const [cart, setCart] = useState([]);
 
   const { productId } = useParams();
 
@@ -25,17 +24,22 @@ const ProductDetails = () => {
     getProduct(productId);
   }, []);
 
-  const addToCart = () => {
-    const cartItem = {
-      product: product,
-      size: selectedSize,
-    };
 
-    // Add the item to the cart
-    setCart([...cart, cartItem]);
+
+  //Need to fix this//
+  const addToCart = () => {
     
-    console.log(`${productId} added to cart`)
-  }
+    post("/cart/create")
+      .then((response) => {
+        console.log(`${productId} added to cart`);
+        setCart(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
 
   return (
     <div className="ProductDetails">
@@ -49,7 +53,7 @@ const ProductDetails = () => {
           <h1>{product.name}</h1>
           <h3>${product.price}</h3>
           <p>Description: {product.description}</p>
-         <label htmlFor="dropdown">Select a Size:</label>
+          <label htmlFor="dropdown">Select a Size:</label>
           <select
             id="dropdown"
             name="size"
@@ -72,9 +76,10 @@ const ProductDetails = () => {
             <option value="12.5">12.5 US M</option>
             <option value="13">13 US M</option>
             <option value="14">14 US M</option>
-            
           </select>
-          <button type="button" onClick={addToCart}>Add to Cart</button>
+          <button type="button" onClick={addToCart}>
+            Add to Cart
+          </button>
         </>
       )}
 

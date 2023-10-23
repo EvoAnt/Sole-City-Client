@@ -30,6 +30,7 @@ const AllProducts = () => {
     </Link>
 
     {products.map((product) => {
+        
         return <ProductCard key={product._id} {...product} />
     })}
 

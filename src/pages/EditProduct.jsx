@@ -28,7 +28,7 @@ const EditProduct = () => {
   }, [productId]);
 
   const handleFormSubmit = (e) => {
-    // <== ADD
+   
     e.preventDefault();
     // Create an object representing the body of the PUT request
     const requestBody = {
