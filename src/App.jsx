@@ -11,6 +11,7 @@ import EditProduct from "./pages/EditProduct";
 import ShoppingCart from "./pages/ShoppingCart";
 import EditMyAccount from "./pages/EditMyAccount";
 import Footer from "./components/Footer";
+import SuccessCheckout from "./pages/SuccessCheckout";
 import "./App.css";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/my-account" element={<MyAccount />} />
         <Route path="/edit/my-account" element={<EditMyAccount />} />
+        <Route path="/success" element={<SuccessCheckout />} />
       </Routes>
 
       <Footer />

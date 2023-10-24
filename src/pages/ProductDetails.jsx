@@ -30,7 +30,7 @@ const ProductDetails = () => {
     getProduct(productId);
   }, [productId]);
 
-  //Need to fix this//
+ 
   const addToCart = () => {
 
     const requestBody = {
@@ -45,6 +45,7 @@ const ProductDetails = () => {
       post(`/cart/add-item/${user._id}`, requestBody)
         .then((response) => {
           console.log(`${product.name} added to cart`);
+          alert(`${product.name} $${product.price} added to cart`)
           setCart(response.data);
         })
         .catch((error) => {

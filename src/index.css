@@ -115,6 +115,14 @@ body {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.CartDetailsContainer {
+  margin-left: 10px;
+}
+
+/* .CartDetails {
+ margin-left: 10px;
+} */
+
 .CartDetails img {
   height: 15vh;
 }
@@ -150,7 +158,8 @@ button {
   background-color: red;
   color: white;
   border: none;
-  height: 2em;
+  border-radius: 8%;
+  height: 2.5em;
   transition: background-color 0.3s, transform 0.1s; /* Add a transition for color change and transform */
 
   /* Add a hover effect for color change */

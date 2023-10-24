@@ -64,6 +64,23 @@ function CartProvider({ children }) {
       });
   };
 
+  // Function to clear the user's cart
+  const clearCart = () => {
+    if (user) {
+      // Make a request to your backend to clear the user's cart
+      post(`/cart/clear/${cart._id}`)
+        .then((response) => {
+          console.log("Cart cleared:", response.data);
+          // Reset the cart state to an empty cart
+          setCart(null);
+        //   setCart({ items: [], total: 0 });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   useEffect(() => {
     if (user) {
       get("/cart")
@@ -84,6 +101,7 @@ function CartProvider({ children }) {
         setCart,
         updateCartItemQuantity,
         removeCartItem,
+        clearCart
       }}
     >
       {children}
