@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { post } from "../services/authService";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const AddToWishlistButton = ({ productId }) => {
   const [isAdded, setIsAdded] = useState(false);
@@ -21,7 +23,9 @@ const AddToWishlistButton = ({ productId }) => {
       {isAdded ? (
         <p>Product added to wishlist!</p>
       ) : (
-        <button onClick={addToWishlist}>Add to Wishlist</button>
+        <button className="heart-icon"  onClick={addToWishlist}>
+          <FontAwesomeIcon icon={faHeart} />
+        </button>
       )}
     </div>
   );

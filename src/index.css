@@ -182,3 +182,9 @@ button {
   display: flex;
   flex-wrap: wrap;
 }
+
+.heart-icon {
+  background-color: white;
+  border-radius: 50%;
+  color: rgb(130, 130, 130);
+}

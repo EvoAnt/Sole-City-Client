@@ -11,7 +11,8 @@ const Home = () => {
   const handleSearch = (query) => {
     get(`/search?query=${query}`)
       .then((response) => {
-        setSearchResults([response.data]);
+        console.log('Search ==>', response.data);
+        setSearchResults(response.data.results);
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +44,7 @@ const Home = () => {
       <h2>Home</h2>
       <SearchBar onSearch={handleSearch} />
       {searchResults.map((result) => {
-        <ProductCard key={result._id} {...result} />;
+       return  <ProductCard key={result._id} {...result} />;
       })}
       
         <h2>New Releases</h2>
