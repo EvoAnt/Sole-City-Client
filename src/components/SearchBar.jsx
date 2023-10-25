@@ -14,8 +14,11 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Search..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        className="SearchInput" // Add a class for styling
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className="SearchButton">
+        Search
+      </button>{" "}
     </div>
   );
 };

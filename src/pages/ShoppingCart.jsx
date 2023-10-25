@@ -32,16 +32,17 @@ const ShoppingCart = () => {
         updateCartItemQuantity={updateCartItemQuantity}
         removeCartItem={removeCartItem}
       />
-      
 
-      <Link to={"/all-products"}>
-        <button>Continue Shopping</button>
-      </Link>
-      <br />
-      <br />
-      <Link>
-        <button onClick={handleCheckout}>Checkout</button>
-      </Link>
+      <div className="button-container">
+        <Link to={"/all-products"}>
+          <button>Continue Shopping</button>
+        </Link>
+        <br />
+        <br />
+        <Link>
+          <button onClick={handleCheckout}>Checkout</button>
+        </Link>
+      </div>
     </div>
   );
 };

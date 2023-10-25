@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import { get } from "../services/authService";
 import ProductCard from "../components/ProductCard";
+import CarouselComponent from "../components/CarouselComponent";
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -11,7 +12,7 @@ const Home = () => {
   const handleSearch = (query) => {
     get(`/search?query=${query}`)
       .then((response) => {
-        console.log('Search ==>', response.data);
+        console.log("Search ==>", response.data);
         setSearchResults(response.data.results);
       })
       .catch((error) => {
@@ -41,20 +42,28 @@ const Home = () => {
 
   return (
     <>
-      <h2>Home</h2>
       <SearchBar onSearch={handleSearch} />
+      <div className="home-title">
+        <h1>Sole City</h1>
+        <p>Your #1 sneaker reseller</p>
+      </div>
+      <CarouselComponent />
       {searchResults.map((result) => {
-       return  <ProductCard key={result._id} {...result} />;
+        return <ProductCard key={result._id} {...result} />;
       })}
-      
-        <h2>New Releases</h2>
+
+      <h2>New Releases</h2>
+      <br />
       <div className="new-releases-container">
         {newest.map((result) => {
           return <ProductCard key={result._id} {...result} />;
         })}
       </div>
 
-        <h2>Top Sellers</h2>
+      <hr />
+
+      <h2>Top Sellers</h2>
+      <br />
       <div className="top-sellers-container">
         {topSellers.map((result) => {
           return <ProductCard key={result._id} {...result} />;

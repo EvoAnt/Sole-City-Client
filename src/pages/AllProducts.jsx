@@ -20,23 +20,20 @@ const AllProducts = () => {
     getAllProducts();
   }, []);
 
-  return <div>
-    
-    <h1 className="title-header">All Sneakers</h1>
-
-    <Link to={'/products/add-product'}>
-    
-    <button>Add Sneaker</button>
-    </Link>
-
-    {products.map((product) => {
-        
-        return <ProductCard key={product._id} {...product} />
-    })}
-
-
-
-  </div>;
+  return (
+    <div className="center-content">
+      <h1 className="title-header">All Sneakers</h1>
+      <Link to={'/products/add-product'}>
+        <button className="add-sneaker-button">Add Sneaker</button>
+      </Link>
+  
+      <div className="product-cards-container">
+        {products.map((product) => (
+          <ProductCard key={product._id} {...product} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default AllProducts;

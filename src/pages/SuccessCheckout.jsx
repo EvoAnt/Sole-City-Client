@@ -1,20 +1,19 @@
-import { useContext, useEffect } from "react"
-import { CartContext } from "../context/cart.context"
+import { useContext, useEffect } from "react";
+import { CartContext } from "../context/cart.context";
+import { AuthContext } from "../context/auth.context";
 
 const SuccessCheckout = () => {
-
-  const { clearCart } = useContext(CartContext)
-
+  const { clearCart, cart } = useContext(CartContext);
+  const { user } = useContext(AuthContext)
   useEffect(() => {
-    clearCart();
-  }, [])
-  
+    user && cart && clearCart();
+  }, [user, cart]);
 
   return (
-    <div>
-      <h1>Thank you for shopping at Sole City!</h1>
+    <div className="SuccessPage">
+      <h1 className="home-title">Thank you for shopping at Sole City!</h1>
     </div>
-  )
-}
+  );
+};
 
-export default SuccessCheckout
+export default SuccessCheckout;

@@ -11,7 +11,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <Link to={"/"}>Sole City</Link>
+      <Link to={"/"}>
+    <img src="../favicon-32x32.png" alt="Sole City" />
+  </Link>
 
       <Link to={"/all-products"}>All Sneakers</Link>
 
@@ -30,7 +32,7 @@ const Navbar = () => {
 
       {getToken() && (
         <>
-          <button onClick={logOutUser}>Logout</button>
+          <button className="logout-button" onClick={logOutUser}>Logout</button>
         </>
       )}
     </nav>

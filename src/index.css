@@ -1,72 +1,3 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
 
 body {
   margin: 0;
@@ -76,13 +7,35 @@ body {
   background-size:initial */
 }
 
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 5px;
+}
+
+h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+}
+
 .title-header {
   text-align: center;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .ProductCard {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
   margin: 10px;
@@ -115,8 +68,56 @@ body {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.new-releases-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.top-sellers-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.heart-icon {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  color: rgb(130, 130, 130);
+}
+
+.heart-icon:hover {
+  color: red;
+}
+
 .CartDetailsContainer {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-left: 10px;
+  height: 100vh; */
+  margin-left: 10px;
+  
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container button {
+  margin: 5px 0;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #860000
 }
 
 /* .CartDetails {
@@ -127,6 +128,7 @@ body {
   height: 15vh;
 }
 
+/* Navbar */
 .navbar {
   background-color: #333;
   color: #fff;
@@ -134,6 +136,7 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 10px;
+  height: 75px;
 }
 
 .navbar a {
@@ -154,46 +157,292 @@ body {
   font-weight: bold;
 }
 
-button {
+.navbar button:hover {
   background-color: red;
-  color: white;
-  border: none;
-  border-radius: 8%;
-  height: 2.5em;
-  transition: background-color 0.3s, transform 0.1s; /* Add a transition for color change and transform */
-
-  /* Add a hover effect for color change */
-  &:hover {
-    background-color: darkred;
-    cursor: pointer; /* Change cursor to a pointer on hover */
-  }
-
-  /* Add a button press animation */
-  &:active {
-    transform: scale(0.95); /* Slightly scale down the button when pressed */
-  }
+  
 }
 
-.footer-container {
-  bottom: 0;
-  width: 100%;
-  /* background-color: #f5f5f5;  */
-  padding: 10px;
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
   text-align: center;
 }
 
-.new-releases-container {
+.footer-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
-.top-sellers-container {
-  display: flex;
-  flex-wrap: wrap;
+/* Copyright text style */
+.footer-container p {
+  font-size: 14px;
+  margin: 0;
 }
 
-.heart-icon {
-  background-color: white;
+/* Social icons style */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: white;
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+/* Adjust the icons using Font Awesome classes */
+.social-icons a i {
+  font-size: 24px;
+}
+
+/* Hover effect for social icons */
+.social-icons a:hover {
+  color: red;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .social-icons {
+    margin-top: 20px;
+  }
+  .social-icons a {
+    font-size: 18px;
+  }
+}
+
+/* Edit Profile Page / Form */
+.form-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-submit {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.form-submit:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #860000;
+}
+
+.button-space {
+  margin: 10px;
+}
+
+/* Profile Page */
+.user-profile {
+  text-align: center;
+  padding: 20px;
+}
+
+.user-section {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.welcome {
+  margin-top: 10px;
+}
+
+.profile-img {
+  height: 25vh;
   border-radius: 50%;
-  color: rgb(130, 130, 130);
+}
+
+.edit-button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #860000;
+}
+
+.shipping-address {
+  text-align: left;
+}
+
+.wishlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.empty-wishlist {
+  margin-top: 20px;
+}
+
+/* Carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #333;
+  border-radius: 10%;
+  
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  color: #fff;
+}
+
+/* Search Bar */
+.SearchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  
+}
+
+.SearchInput {
+  padding: 5px;
+  margin: 0;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+}
+
+.SearchButton {
+  background-color: #ff0000; 
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.SearchButton:hover {
+  background-color: #860000;
+}
+
+
+.remove-cart-button {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 2.5px 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-cart-button:hover {
+  background-color: #860000;
+}
+
+.add-sneaker-button {
+  text-align: center;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-sneaker-button:hover {
+  background-color: #860000;
+}
+
+.product-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.home-title {
+  text-align: center;
+}
+
+.home-title h1 {
+  font-size: 5em;
+}
+
+.back-button {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.back-button:hover {
+  background-color: #860000;
+}
+
+.edit-account-container {
+  height: 100vh;
+}
+
+.SuccessPage {
+  height: 100vh;
+}
+
+.remove-wishlist-button {
+  background: none; /* Remove the background */
+  border: none; /* Remove the border */
+  padding: 0; /* Remove any padding */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  width: 10%;
 }

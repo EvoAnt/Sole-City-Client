@@ -14,7 +14,7 @@ const Cart = ({ cart, updateCartItemQuantity, removeCartItem }) => {
 
   return (
     <div className="CartDetailsContainer">
-      <h2>Shopping Cart</h2>
+      <h1>Shopping Cart</h1>
       {cartItems && cartItems.length > 0 ? (
         <div>
           {cartItems.map((cartItem, index) => (
@@ -38,14 +38,14 @@ const Cart = ({ cart, updateCartItemQuantity, removeCartItem }) => {
                   </option>
                 ))}
               </select>
-              <p>Price: ${cartItem.price.toFixed(2)}</p>
-              <button onClick={() => handleRemoveItem(cartItem.itemId)}>
+              <p>Price: <b>${cartItem.price.toFixed(2)}</b></p>
+              <button className="remove-cart-button" onClick={() => handleRemoveItem(cartItem.itemId)}>
                 Remove
               </button>
               <hr />
             </div>
           ))}
-          <p>Cart Total: ${cartTotal.toFixed(2)}</p>
+          <p><b>TOTAL: ${cartTotal.toFixed(2)}</b></p>
         </div>
       ) : (
         <p>Your cart is empty.</p>

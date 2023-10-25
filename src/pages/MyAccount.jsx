@@ -1,48 +1,74 @@
+import { post } from "../services/authService";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import ProductCard from "../components/ProductCard";
+
+
+
+
 const MyAccount = () => {
-  const { user } = useContext(AuthContext);
+
+  const { user, authenticateUser } = useContext(AuthContext);
+
+  const handleRemoveFromWishlist = async (productId) => {
+      try {
+        const response = await post(`/users/my-account/wishlist/${productId}`);
+        console.log("Removed from wishlist", response.data);
+        authenticateUser();
+      } catch (error) {
+        console.error(error);
+      }
+    
+  };
+    
+
 
   return (
-    <div>
+    <div className="user-profile">
       {user && (
         <>
-          <h2>My Account</h2>
-          <h3>Welcome {user.name}!</h3>
-          <img src={user.image} alt="profile-img" />
-
+          <h2>MY ACCOUNT:</h2>
+          <h3 className="welcome">Welcome {user.name}!</h3>
+          <img className="profile-img" src={user.image} alt="profile-img" />
           <br />
-
+          <br />
           <Link to={"/edit/my-account"}>
-            <button>Edit Account</button>
+            <button className="edit-button">Edit Account</button>
           </Link>
 
-          <h4>
-            Shipping Address:
-            <br />
-            {user.address}
-          </h4>
+          <div className="user-section">
+            <div className="shipping-address">
+              <h4>Shipping Address:</h4>
+              <p>{user.address}</p>
+            </div>
+          </div>
 
-          <h2>My Wishlist</h2>
-          {user && user.wishlist.length ? (
-            user.wishlist.map((current) => (
-              <ProductCard
-                brand={current.brand}
-                name={current.name}
-                price={current.price}
-                _id={current._id}
-                image={current.image}
-                isUserPage={true}
-              />
-            ))
-          ) : (
-            <p>wishlist empty </p>
-          )}
-          
+          <h2>MY WISHLIST:</h2>
+          <div className="user-section">
+            {user && user.wishlist.length ? (
+              <div className="wishlist">
+                {user.wishlist.map((current) => (
+                  <ProductCard
+                    brand={current.brand}
+                    name={current.name}
+                    price={current.price}
+                    _id={current._id.toString()}
+                    image={current.image}
+                    isUserPage={true}
+                    onRemoveFromWishlist={handleRemoveFromWishlist}
+                  />
+                  
+                ))}
+                
+              </div>
+            ) : (
+              <p className="empty-wishlist">Wishlist is empty</p>
+            )}
+          </div>
 
-          <h2>My Orders</h2>
+          <h2>MY ORDERS:</h2>
+          <div className="user-section"></div>
         </>
       )}
     </div>

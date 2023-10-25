@@ -4,6 +4,8 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/auth.context.jsx";
 import { CartProvider } from "./context/cart.context.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import "./index.css";
 
