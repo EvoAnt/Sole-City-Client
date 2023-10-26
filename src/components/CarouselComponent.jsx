@@ -14,7 +14,7 @@ const CarouselComponent = () => {
         </a>
       </Carousel.Item>
       <Carousel.Item>
-        <a href="http://solecity.netlify.app/products/6532df5a8ad9ee1e772fe6b5">
+        <a href="http://solecity.netlify.app/products/653ac8976da9a86a43bb9615">
           <img
             className="d-block w-100"
             src="https://sneakernews.com/wp-content/uploads/2023/10/travis-scott-jordan-1-golf-release-date.jpg"
@@ -24,7 +24,7 @@ const CarouselComponent = () => {
         </a>
       </Carousel.Item>
       <Carousel.Item>
-        <a href="http://solecity.netlify.app/products/6532df5a8ad9ee1e772fe6bd">
+        <a href="http://solecity.netlify.app/products/653ac8976da9a86a43bb961d">
           <img
             className="d-block w-100"
             src="https://sneakerbardetroit.com/wp-content/uploads/2020/10/Nike-SB-Dunk-low-freddy-kruger-sneaker-talk.jpg"
