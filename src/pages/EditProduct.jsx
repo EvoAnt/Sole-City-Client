@@ -14,7 +14,7 @@ const EditProduct = () => {
 
   const [product, setProduct] = useState(initialProductState);
 
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(false);
 
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -31,7 +31,6 @@ const EditProduct = () => {
   }, [productId]);
 
   const handleFormSubmit = (e) => {
-   
     e.preventDefault();
     // Create an object representing the body of the PUT request
     const requestBody = {
@@ -68,18 +67,21 @@ const EditProduct = () => {
   };
 
   const handleFileChange = (e) => {
-    setDisabled(true)
+    setDisabled(true);
     fileChange(e)
       .then((response) => {
-        setProduct((prev) => ({...prev, [e.target.name]: response.data.image}))
-        setDisabled(false)
-       console.log("Image changed")
+        setProduct((prev) => ({
+          ...prev,
+          [e.target.name]: response.data.image,
+        }));
+        setDisabled(false);
+        console.log("Image changed");
       })
       .catch((err) => {
-        setDisabled(false)
+        setDisabled(false);
         console.log("Error while uploading the file: ", err);
       });
-}
+  };
 
   return (
     <div className="EditProductPage">
@@ -87,7 +89,9 @@ const EditProduct = () => {
 
       <form onSubmit={handleFormSubmit} className="user-form">
         <div className="form-group">
-          <label htmlFor="brand" className="form-label">Brand:</label>
+          <label htmlFor="brand" className="form-label">
+            Brand:
+          </label>
           <input
             type="text"
             name="brand"
@@ -97,7 +101,9 @@ const EditProduct = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name" className="form-label">Name:</label>
+          <label htmlFor="name" className="form-label">
+            Name:
+          </label>
           <input
             type="text"
             name="name"
@@ -107,7 +113,9 @@ const EditProduct = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="price" className="form-label">Price:</label>
+          <label htmlFor="price" className="form-label">
+            Price:
+          </label>
           <input
             type="number"
             name="price"
@@ -117,7 +125,9 @@ const EditProduct = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="description" className="form-label">Description:</label>
+          <label htmlFor="description" className="form-label">
+            Description:
+          </label>
           <textarea
             name="description"
             className="form-input"
@@ -128,7 +138,9 @@ const EditProduct = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image" className="form-label">Image:</label>
+          <label htmlFor="image" className="form-label">
+            Image:
+          </label>
           <input
             type="file"
             name="image"
@@ -138,9 +150,13 @@ const EditProduct = () => {
         </div>
 
         <input type="submit" value="Submit" className="form-submit" />
-
-      <button onClick={deleteProduct} className="form-submit-delete">Delete</button>
       </form>
+      <div className="delete-button-container">
+        <button onClick={deleteProduct} className="form-submit-delete">
+          Delete
+        </button>
+        <br />
+      </div>
     </div>
   );
 };
