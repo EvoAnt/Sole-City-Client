@@ -1,15 +1,28 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const CustomNavbar = () => {
   const { logOutUser } = useContext(AuthContext);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const getToken = () => {
     return localStorage.getItem("authToken");
+  };
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+
+    // Toggle the dark mode class on the body element
+    if (isDarkMode) {
+      document.body.classList.remove("dark-mode");
+    } else {
+      document.body.classList.add("dark-mode");
+    }
   };
 
   const navbarStyle = {
@@ -21,7 +34,13 @@ const CustomNavbar = () => {
   };
 
   return (
-    <Navbar className="sticky-navbar"  bg="dark" variant="dark" expand="lg" style={navbarStyle}>
+    <Navbar
+      className="sticky-navbar"
+      bg=""
+      variant="dark"
+      expand="lg"
+      style={navbarStyle}
+    >
       <Navbar.Brand as={Link} to="/" style={brandStyle} className="navbar-home">
         SOLE CITY
       </Navbar.Brand>
@@ -53,6 +72,13 @@ const CustomNavbar = () => {
               MY ACCOUNT
             </Nav.Link>
           )}
+          <Nav.Link onClick={toggleDarkMode}>
+            {isDarkMode ? (
+              <FontAwesomeIcon icon={faSun} />
+            ) : (
+              <FontAwesomeIcon icon={faMoon} />
+            )}
+          </Nav.Link>
           {getToken() && (
             <Button variant="danger" onClick={logOutUser}>
               LOGOUT

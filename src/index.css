@@ -29,6 +29,11 @@ b {
   font-weight: bold;
 }
 
+.dark-mode {
+  background-color: #161616;
+  color: white;
+}
+
 .title-header {
   text-align: center;
 }
