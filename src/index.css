@@ -1,24 +1,28 @@
-
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #e8e8e8; */
-  /* background-image: url('../public/sole-city-background.jpg');
-  background-size:initial */
 }
 
 h1 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: "Sedgwick Ave Display", cursive, Impact, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
 }
 
 h2 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-left: 5px;
 }
 
 h3 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1em;
+}
+
+h4,
+h5,
+h6,
+p {
+  font-family: "Montserrat", sans-serif;
 }
 
 .title-header {
@@ -40,7 +44,7 @@ h3 {
   background-color: #fff;
   margin: 10px;
   padding: 10px;
-  width: 20vw;
+  width: 21vw;
   /* border: 1.5px solid; */
   border-radius: 5%;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
@@ -62,6 +66,24 @@ h3 {
   align-items: center;
 }
 
+.product-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-info {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
 .ProductDetails img {
   height: 45vh;
   border-radius: 10%;
@@ -76,6 +98,7 @@ h3 {
 .top-sellers-container {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 .heart-icon {
@@ -97,7 +120,6 @@ h3 {
   margin-left: 10px;
   height: 100vh; */
   margin-left: 10px;
-  
 }
 
 .button-container {
@@ -117,7 +139,7 @@ h3 {
 }
 
 .button-container button:hover {
-  background-color: #860000
+  background-color: #860000;
 }
 
 /* .CartDetails {
@@ -129,14 +151,12 @@ h3 {
 }
 
 /* Navbar */
-.navbar {
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
-  height: 75px;
+
+.navbar-home {
+  font-family: "Sedgwick Ave Display", cursive;
+  color: red;
+  font-size: 2em;
+  text-decoration: none;
 }
 
 .navbar a {
@@ -149,18 +169,6 @@ h3 {
   text-decoration: underline;
 }
 
-.navbar button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.navbar button:hover {
-  background-color: red;
-  
-}
 
 /* Footer */
 footer {
@@ -174,6 +182,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  bottom: 0;
 }
 
 /* Copyright text style */
@@ -216,7 +225,8 @@ footer {
 
 /* Edit Profile Page / Form */
 .form-title {
-  font-size: 24px;
+  font-size: 3em;
+  margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -243,7 +253,7 @@ footer {
 }
 
 .form-submit {
-  background-color: #007bff;
+  background-color: #ff0000;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -253,7 +263,32 @@ footer {
 }
 
 .form-submit:hover {
-  background-color: #0056b3;
+  background-color: #860000;
+}
+
+.form-submit-delete {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-left: 5%;
+}
+
+.form-submit-delete:hover {
+  background-color: #860000;
+}
+
+.error-message {
+  background: #860000;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 20%;
+  text-align: center;
 }
 
 .delete-button {
@@ -326,11 +361,15 @@ footer {
 }
 
 /* Carousel */
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: #333;
-  border-radius: 10%;
-  
+  background-color: #898989;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  height: 10%;
+  width: 30%;
 }
 
 .carousel-control-prev-icon::before,
@@ -347,7 +386,6 @@ footer {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 4px;
-  
 }
 
 .SearchInput {
@@ -361,7 +399,7 @@ footer {
 }
 
 .SearchButton {
-  background-color: #ff0000; 
+  background-color: #ff0000;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -374,7 +412,6 @@ footer {
 .SearchButton:hover {
   background-color: #860000;
 }
-
 
 .remove-cart-button {
   background-color: #ff0000;
@@ -432,17 +469,29 @@ footer {
 }
 
 .edit-account-container {
-  height: 100vh;
+  height: 75vh;
 }
 
 .SuccessPage {
-  height: 100vh;
+  height: 82vh;
 }
 
 .remove-wishlist-button {
-  background: none; /* Remove the background */
-  border: none; /* Remove the border */
-  padding: 0; /* Remove any padding */
-  cursor: pointer; /* Add a pointer cursor on hover */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   width: 10%;
+}
+
+.AddProductPage {
+  height: 75vh;
+}
+
+.LoginPage {
+  height: 75vh;
+}
+
+.SignupPage {
+  height: 75vh;
 }

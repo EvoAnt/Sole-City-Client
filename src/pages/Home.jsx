@@ -44,7 +44,8 @@ const Home = () => {
     <>
       <SearchBar onSearch={handleSearch} />
       <div className="home-title">
-        <h1>Sole City</h1>
+        <br />
+        <h1>SOLE CITY</h1>
         <p>Your #1 sneaker reseller</p>
       </div>
       <CarouselComponent />
@@ -52,7 +53,9 @@ const Home = () => {
         return <ProductCard key={result._id} {...result} />;
       })}
 
-      <h2>New Releases</h2>
+      <br />
+
+      <h2>NEW RELEASES</h2>
       <br />
       <div className="new-releases-container">
         {newest.map((result) => {
@@ -62,7 +65,7 @@ const Home = () => {
 
       <hr />
 
-      <h2>Top Sellers</h2>
+      <h2>TOP SELLERS</h2>
       <br />
       <div className="top-sellers-container">
         {topSellers.map((result) => {

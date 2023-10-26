@@ -79,7 +79,7 @@ const EditMyAccount = () => {
 }
   return userInfo ? (
     <div className="edit-account-container">
-      <h2 className="form-title">Edit My Account</h2>
+      <h1 className="form-title">Edit My Account</h1>
 
       <form onSubmit={handleFormSubmit} className="user-form">
         <div className="form-group">

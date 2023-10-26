@@ -13,6 +13,7 @@ import ShoppingCart from "./pages/ShoppingCart";
 import EditMyAccount from "./pages/EditMyAccount";
 import Footer from "./components/Footer";
 import SuccessCheckout from "./pages/SuccessCheckout";
+import CustomNavbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <div>
-      <Navbar />
+      <CustomNavbar />
 
       <Routes>
         <Route path="/" element={<Home />} />

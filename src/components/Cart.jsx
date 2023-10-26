@@ -14,7 +14,8 @@ const Cart = ({ cart, updateCartItemQuantity, removeCartItem }) => {
 
   return (
     <div className="CartDetailsContainer">
-      <h1>Shopping Cart</h1>
+      <br />
+      <h1>My Cart</h1>
       {cartItems && cartItems.length > 0 ? (
         <div>
           {cartItems.map((cartItem, index) => (

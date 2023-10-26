@@ -20,8 +20,9 @@ const AllProducts = () => {
     getAllProducts();
   }, []);
 
-  return (
+  return products ? (
     <div className="center-content">
+      <br />
       <h1 className="title-header">All Sneakers</h1>
       <Link to={'/products/add-product'}>
         <button className="add-sneaker-button">Add Sneaker</button>
@@ -33,7 +34,9 @@ const AllProducts = () => {
         ))}
       </div>
     </div>
-  );
+  ) : (
+    <p>Loading...</p>
+    );
 };
 
 export default AllProducts;

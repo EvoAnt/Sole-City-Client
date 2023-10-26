@@ -11,7 +11,8 @@ const SuccessCheckout = () => {
 
   return (
     <div className="SuccessPage">
-      <h1 className="home-title">Thank you for shopping at Sole City!</h1>
+      <br />
+      <h1 className="home-title">Thank you for shopping at SOLE CITY!</h1>
     </div>
   );
 };

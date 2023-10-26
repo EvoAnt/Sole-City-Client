@@ -35,30 +35,50 @@ const Signup = () => {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+      <h1 className="form-title">Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+      <form onSubmit={handleSignupSubmit} className="user-form">
+        <div className="form-group">
+          <label className="form-label">Email:</label>
+          <input
+            type="email"
+            name="email"
+            className="form-input"
+            value={email}
+            onChange={handleEmail}
+          />
+        </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+        <div className="form-group">
+          <label className="form-label">Password:</label>
+          <input
+            type="password"
+            name="password"
+            className="form-input"
+            value={password}
+            onChange={handlePassword}
+          />
+        </div>
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <div className="form-group">
+          <label className="form-label">Name:</label>
+          <input
+            className="form-input"
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleName}
+          />
+        </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="form-submit">
+          Sign Up
+        </button>
+        <p>Already have account?</p>
+        <Link to={"/login"}> Login</Link>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
     </div>
   );
 };

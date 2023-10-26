@@ -1,42 +1,67 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { Navbar, Nav, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = () => {
+const CustomNavbar = () => {
   const { logOutUser } = useContext(AuthContext);
 
   const getToken = () => {
     return localStorage.getItem("authToken");
   };
 
+  const navbarStyle = {
+    backgroundColor: "#333",
+  };
+
+  const brandStyle = {
+    color: "red",
+  };
+
   return (
-    <nav className="navbar">
-      <Link to={"/"}>
-    <img src="../favicon-32x32.png" alt="Sole City" />
-  </Link>
+    <Navbar bg="dark" variant="dark" expand="lg" style={navbarStyle}>
+      <Navbar.Brand as={Link} to="/" style={brandStyle} className="navbar-home">
+        SOLE CITY
+      </Navbar.Brand>
 
-      <Link to={"/all-products"}>All Sneakers</Link>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-      {!getToken() && (
-        <>
-          <Link to={"/login"}>Login</Link>
-        </>
-      )}
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          {/* Left-aligned links */}
+          <Nav.Link as={Link} to="/all-products">
+            ALL SNEAKERS
+          </Nav.Link>
+          {!getToken() && (
+            <Nav.Link as={Link} to="/login">
+              LOGIN
+            </Nav.Link>
+          )}
+        </Nav>
 
-      {getToken() && (
-        <>
-          <Link to={"/my-account"}>My Account</Link>
-        </>
-      )}
-      <Link to={"/cart"}>My Cart</Link>
+        <Nav className="ml-auto">
+          {/* Right-aligned links */}
 
-      {getToken() && (
-        <>
-          <button className="logout-button" onClick={logOutUser}>Logout</button>
-        </>
-      )}
-    </nav>
+          <Nav.Link as={Link} to="/cart">
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </Nav.Link>
+
+          {getToken() && (
+            <Nav.Link as={Link} to="/my-account">
+              MY ACCOUNT
+            </Nav.Link>
+          )}
+          {getToken() && (
+            <Button variant="danger" onClick={logOutUser}>
+              LOGOUT
+            </Button>
+          )}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default CustomNavbar;

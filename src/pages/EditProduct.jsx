@@ -66,59 +66,65 @@ const EditProduct = () => {
 
   return (
     <div className="EditProductPage">
-      <h2>Edit Product</h2>
+      <h1 className="form-title">Edit Product</h1>
 
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <label htmlFor="brand">Brand:</label>
+      <form onSubmit={handleFormSubmit} className="user-form">
+        <div className="form-group">
+          <label htmlFor="brand" className="form-label">Brand:</label>
           <input
             type="text"
             name="brand"
+            className="form-input"
             value={product.brand}
             onChange={(e) => setProduct({ ...product, brand: e.target.value })}
           />
         </div>
-        <div>
-          <label htmlFor="name">Name:</label>
+        <div className="form-group">
+          <label htmlFor="name" className="form-label">Name:</label>
           <input
             type="text"
             name="name"
+            className="form-input"
             value={product.name}
             onChange={(e) => setProduct({ ...product, name: e.target.value })}
           />
         </div>
-        <div>
-          <label htmlFor="price">Price:</label>
+        <div className="form-group">
+          <label htmlFor="price" className="form-label">Price:</label>
           <input
             type="number"
             name="price"
+            className="form-input"
             value={product.price}
             onChange={(e) => setProduct({ ...product, price: e.target.value })}
           />
         </div>
-        <div>
-          <label htmlFor="description">Description:</label>
+        <div className="form-group">
+          <label htmlFor="description" className="form-label">Description:</label>
           <textarea
             name="description"
+            className="form-input"
             value={product.description}
             onChange={(e) =>
               setProduct({ ...product, description: e.target.value })
             }
           />
         </div>
-        <div>
-          <label htmlFor="image">Image URL:</label>
+        <div className="form-group">
+          <label htmlFor="image" className="form-label">Image URL:</label>
           <input
             type="text"
             name="image"
+            className="form-input"
             value={product.image}
             onChange={(e) => setProduct({ ...product, image: e.target.value })}
           />
         </div>
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="form-submit" />
+
+      <button onClick={deleteProduct} className="form-submit-delete">Delete</button>
       </form>
-      <button onClick={deleteProduct}>Delete</button>
     </div>
   );
 };
