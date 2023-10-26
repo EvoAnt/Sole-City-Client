@@ -31,7 +31,7 @@ const MyAccount = () => {
         <>
           <h2>MY ACCOUNT:</h2>
           <h3 className="welcome">Welcome {user.name}!</h3>
-          <img className="profile-img" src={user.image} alt="profile-img" />
+          <img className="profile-img" src={user.image} alt="https://cvhrma.org/wp-content/uploads/2015/07/default-profile-photo.jpg" />
           <br />
           <br />
           <Link to={"/edit/my-account"}>
