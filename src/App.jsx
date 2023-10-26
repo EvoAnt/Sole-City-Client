@@ -30,7 +30,9 @@ function App() {
   };
 
   return (
-    <>
+    <div className="app-container">
+    <div>
+
       <CustomNavbar />
 
       <Routes>
@@ -46,9 +48,10 @@ function App() {
         <Route path="/edit/my-account" element={<EditMyAccount />} />
         <Route path="/success" element={<SuccessCheckout />} />
       </Routes>
+    </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

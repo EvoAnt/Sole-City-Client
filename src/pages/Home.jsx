@@ -25,11 +25,12 @@ const Home = () => {
     }
   };
 
-  const handleKeyPress = (e, query) => {
-    if (e.key === "Enter") {
-      handleSearch(query);
-    }
-  };
+  // const handleKeyPress = (e, query) => {
+  //   console.log('KEYPRESS', e);
+  //   if (e.key === "Enter") {
+  //     handleSearch(query);
+  //   }
+  // };
 
   useEffect(() => {
     get("/products/newest")
@@ -53,7 +54,9 @@ const Home = () => {
 
   return (
     <>
-      <SearchBar onSearch={handleSearch} onKeyUp={handleKeyPress} />
+      <SearchBar onSearch={handleSearch} 
+      // onKeyUp={handleKeyPress}
+       />
       <div className="home-title">
         <br />
         <h1>SOLE CITY</h1>

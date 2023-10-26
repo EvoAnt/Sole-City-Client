@@ -8,8 +8,9 @@ const SearchBar = ({ onSearch, onKeyUp }) => {
   };
 
   const handleEnter = (e) => {
+    console.log('KEYPRESS', e);
     if (e.key === "Enter") {
-      onKeyUp(searchQuery);
+      handleSearch();
     }
   }
 
