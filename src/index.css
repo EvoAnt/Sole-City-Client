@@ -60,7 +60,7 @@ b {
 }
 
 .product-card-link {
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
   text-decoration: none;
   color: black;
 }
