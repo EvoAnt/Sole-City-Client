@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { post } from "../services/authService";
 import { Link } from "react-router-dom";
+import { fileChange } from "../services/fileChange";
 
 const AddProduct = () => {
   const [newProduct, setNewProduct] = useState({
@@ -11,6 +12,8 @@ const AddProduct = () => {
     description: "",
     image: "",
   });
+
+  const [disabled, setDisabled] = useState(false)
 
   const navigate = useNavigate();
 
@@ -35,6 +38,20 @@ const AddProduct = () => {
         console.log(err);
       });
   };
+
+  const handleFileChange = (e) => {
+    setDisabled(true)
+    fileChange(e)
+      .then((response) => {
+        setNewProduct((prev) => ({...prev, [e.target.name]: response.data.image}))
+        setDisabled(false)
+       console.log("Image changed")
+      })
+      .catch((err) => {
+        setDisabled(false)
+        console.log("Error while uploading the file: ", err);
+      });
+}
 
   return (
     <div className="AddProductPage">
@@ -101,20 +118,17 @@ const AddProduct = () => {
         </div>
         <div className="form-group">
           <label htmlFor="image" className="form-label">
-            Image URL:
+            Image:
           </label>
           <input
-            type="text"
+            type="file"
             name="image"
             className="form-input"
-            value={newProduct.image}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, image: e.target.value })
-            }
+            onChange={handleFileChange}
           />
         </div>
 
-        <button type="submit" className="form-submit">
+        <button type="submit" className="form-submit" disabled={disabled}>
           Add Product
         </button>
       </form>

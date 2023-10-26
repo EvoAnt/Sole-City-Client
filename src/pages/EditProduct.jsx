@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { get, put, axiosDelete } from "../services/authService";
+import { fileChange } from "../services/fileChange";
 
 const EditProduct = () => {
   const initialProductState = {
@@ -12,6 +13,8 @@ const EditProduct = () => {
   };
 
   const [product, setProduct] = useState(initialProductState);
+
+  const [disabled, setDisabled] = useState(false)
 
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -64,6 +67,20 @@ const EditProduct = () => {
       .catch((err) => console.log(err));
   };
 
+  const handleFileChange = (e) => {
+    setDisabled(true)
+    fileChange(e)
+      .then((response) => {
+        setProduct((prev) => ({...prev, [e.target.name]: response.data.image}))
+        setDisabled(false)
+       console.log("Image changed")
+      })
+      .catch((err) => {
+        setDisabled(false)
+        console.log("Error while uploading the file: ", err);
+      });
+}
+
   return (
     <div className="EditProductPage">
       <h1 className="form-title">Edit Product</h1>
@@ -111,13 +128,12 @@ const EditProduct = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image" className="form-label">Image URL:</label>
+          <label htmlFor="image" className="form-label">Image:</label>
           <input
-            type="text"
+            type="file"
             name="image"
             className="form-input"
-            value={product.image}
-            onChange={(e) => setProduct({ ...product, image: e.target.value })}
+            onChange={handleFileChange}
           />
         </div>
 

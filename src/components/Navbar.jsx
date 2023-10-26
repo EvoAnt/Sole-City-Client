@@ -21,7 +21,7 @@ const CustomNavbar = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" style={navbarStyle}>
+    <Navbar className="sticky-navbar"  bg="dark" variant="dark" expand="lg" style={navbarStyle}>
       <Navbar.Brand as={Link} to="/" style={brandStyle} className="navbar-home">
         SOLE CITY
       </Navbar.Brand>
@@ -41,7 +41,7 @@ const CustomNavbar = () => {
           )}
         </Nav>
 
-        <Nav className="ml-auto">
+        <Nav className="ms-auto">
           {/* Right-aligned links */}
 
           <Nav.Link as={Link} to="/cart">

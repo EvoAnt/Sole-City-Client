@@ -10,14 +10,25 @@ const Home = () => {
   const [topSellers, setTopSellers] = useState([]);
 
   const handleSearch = (query) => {
-    get(`/search?query=${query}`)
-      .then((response) => {
-        console.log("Search ==>", response.data);
-        setSearchResults(response.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (query) {
+      get(`/search?query=${query}`)
+        .then((response) => {
+          console.log("Search ==>", response.data);
+          setSearchResults(response.data.results);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      // Reset searchResults when the query is empty
+      setSearchResults([]);
+    }
+  };
+
+  const handleKeyPress = (e, query) => {
+    if (e.key === "Enter") {
+      handleSearch(query);
+    }
   };
 
   useEffect(() => {
@@ -42,16 +53,23 @@ const Home = () => {
 
   return (
     <>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} onKeyUp={handleKeyPress} />
       <div className="home-title">
         <br />
         <h1>SOLE CITY</h1>
-        <p>Your #1 sneaker reseller</p>
+        <p>YOUR #1 SNEAKER RESELLER</p>
       </div>
       <CarouselComponent />
-      {searchResults.map((result) => {
-        return <ProductCard key={result._id} {...result} />;
-      })}
+
+      {searchResults.length > 0 && (
+        <div className="new-releases-container">
+          <h2>SEARCHED</h2>
+
+          {searchResults.map((result) => (
+            <ProductCard key={result._id} {...result} />
+          ))}
+        </div>
+      )}
 
       <br />
 

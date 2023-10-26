@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, onKeyUp }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = () => {
     onSearch(searchQuery);
   };
+
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      onKeyUp(searchQuery);
+    }
+  }
 
   return (
     <div className="SearchBar">
@@ -14,7 +20,8 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Search..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="SearchInput" // Add a class for styling
+        onKeyUp={handleEnter}
+        className="SearchInput"
       />
       <button onClick={handleSearch} className="SearchButton">
         Search

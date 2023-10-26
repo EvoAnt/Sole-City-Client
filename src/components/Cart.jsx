@@ -39,6 +39,8 @@ const Cart = ({ cart, updateCartItemQuantity, removeCartItem }) => {
                   </option>
                 ))}
               </select>
+              <br />
+              <br />
               <p>Price: <b>${cartItem.price.toFixed(2)}</b></p>
               <button className="remove-cart-button" onClick={() => handleRemoveItem(cartItem.itemId)}>
                 Remove

@@ -25,6 +25,10 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
+b {
+  font-weight: bold;
+}
+
 .title-header {
   text-align: center;
 }
@@ -51,12 +55,15 @@ p {
 }
 
 .product-card-link {
+  font-family: "Montserrat", sans-serif;
   text-decoration: none;
   color: black;
 }
 
 .ProductCard img {
   height: 25vh;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .ProductDetails {
@@ -64,6 +71,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 76vh;
 }
 
 .product-details-container {
@@ -93,11 +101,13 @@ p {
 .new-releases-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .top-sellers-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 10px;
 }
 
@@ -159,6 +169,16 @@ p {
   text-decoration: none;
 }
 
+.navbar button {
+  margin-right: 10px;
+}
+
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Add z-index to ensure the Navbar is above other content */
+}
+
 .navbar a {
   text-decoration: none;
   color: #fff;
@@ -169,6 +189,11 @@ p {
   text-decoration: underline;
 }
 
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 /* Footer */
 footer {
@@ -176,51 +201,6 @@ footer {
   color: white;
   padding: 20px 0;
   text-align: center;
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  bottom: 0;
-}
-
-/* Copyright text style */
-.footer-container p {
-  font-size: 14px;
-  margin: 0;
-}
-
-/* Social icons style */
-.social-icons {
-  margin-top: 10px;
-}
-
-.social-icons a {
-  text-decoration: none;
-  color: white;
-  margin: 0 10px;
-  font-size: 20px;
-}
-
-/* Adjust the icons using Font Awesome classes */
-.social-icons a i {
-  font-size: 24px;
-}
-
-/* Hover effect for social icons */
-.social-icons a:hover {
-  color: red;
-}
-
-/* Media query for responsive design */
-@media (max-width: 768px) {
-  .social-icons {
-    margin-top: 20px;
-  }
-  .social-icons a {
-    font-size: 18px;
-  }
 }
 
 /* Edit Profile Page / Form */
@@ -347,6 +327,7 @@ footer {
 
 .shipping-address {
   text-align: left;
+  
 }
 
 .wishlist {
@@ -478,6 +459,7 @@ footer {
 
 .remove-wishlist-button {
   background: none;
+  background-color: none;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -493,5 +475,9 @@ footer {
 }
 
 .SignupPage {
+  height: 75vh;
+}
+
+.EditProductPage {
   height: 75vh;
 }

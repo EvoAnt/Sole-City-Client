@@ -12,8 +12,9 @@ const MyAccount = () => {
   const { user, authenticateUser } = useContext(AuthContext);
 
   const handleRemoveFromWishlist = async (productId) => {
+    console.log('ID -->', productId);
       try {
-        const response = await post(`/users/my-account/wishlist/${productId}`);
+        const response = await post(`/users/my-account/wishlist/remove/${productId}`);
         console.log("Removed from wishlist", response.data);
         authenticateUser();
       } catch (error) {
@@ -44,6 +45,8 @@ const MyAccount = () => {
             </div>
           </div>
 
+          <br />
+
           <h2>MY WISHLIST:</h2>
           <div className="user-section">
             {user && user.wishlist.length ? (
@@ -56,7 +59,7 @@ const MyAccount = () => {
                     _id={current._id.toString()}
                     image={current.image}
                     isUserPage={true}
-                    onRemoveFromWishlist={handleRemoveFromWishlist}
+                    onRemoveFromWishlist={()=>handleRemoveFromWishlist(current._id)}
                   />
                   
                 ))}
@@ -66,6 +69,8 @@ const MyAccount = () => {
               <p className="empty-wishlist">Wishlist is empty</p>
             )}
           </div>
+
+          <br />
 
           <h2>MY ORDERS:</h2>
           <div className="user-section"></div>

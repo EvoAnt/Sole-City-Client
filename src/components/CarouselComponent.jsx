@@ -2,7 +2,7 @@ import { Carousel } from "react-bootstrap";
 
 const CarouselComponent = () => {
   return (
-    <Carousel>
+    <Carousel fade={true}>
       <Carousel.Item>
         <a href="http://localhost:5173/products/6532df5a8ad9ee1e772fe6b9">
           <img

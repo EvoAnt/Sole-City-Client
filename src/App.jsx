@@ -1,5 +1,4 @@
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import MyAccount from "./pages/MyAccount";
@@ -14,6 +13,7 @@ import EditMyAccount from "./pages/EditMyAccount";
 import Footer from "./components/Footer";
 import SuccessCheckout from "./pages/SuccessCheckout";
 import CustomNavbar from "./components/Navbar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <CustomNavbar />
 
       <Routes>
@@ -48,7 +48,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </div>
+    </>
   );
 }
 
