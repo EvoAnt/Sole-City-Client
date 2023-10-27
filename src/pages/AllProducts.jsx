@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import { get } from "../services/authService";
 import { Link } from "react-router-dom";
+import Spinner from "../components/Spinner";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -69,7 +70,7 @@ const AllProducts = () => {
       <br />
     </div>
   ) : (
-    <p>Loading...</p>
+    <Spinner />
     );
 };
 

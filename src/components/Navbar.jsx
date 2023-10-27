@@ -53,11 +53,6 @@ const CustomNavbar = () => {
           <Nav.Link as={Link} to="/all-products">
             ALL SNEAKERS
           </Nav.Link>
-          {!getToken() && (
-            <Nav.Link as={Link} to="/login">
-              LOGIN
-            </Nav.Link>
-          )}
         </Nav>
 
         <Nav className="ms-auto">
@@ -67,10 +62,21 @@ const CustomNavbar = () => {
             <FontAwesomeIcon icon={faShoppingCart} />
           </Nav.Link>
 
+          {!getToken() && (
+            <Nav.Link as={Link} to="/login">
+              LOGIN
+            </Nav.Link>
+          )}
+
           {getToken() && (
             <Nav.Link as={Link} to="/my-account">
               MY ACCOUNT
             </Nav.Link>
+          )}
+          {getToken() && (
+            <Button variant="danger" onClick={logOutUser}>
+              LOGOUT
+            </Button>
           )}
           <Nav.Link onClick={toggleDarkMode}>
             {isDarkMode ? (
@@ -79,11 +85,6 @@ const CustomNavbar = () => {
               <FontAwesomeIcon icon={faMoon} />
             )}
           </Nav.Link>
-          {getToken() && (
-            <Button variant="danger" onClick={logOutUser}>
-              LOGOUT
-            </Button>
-          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
