@@ -468,7 +468,7 @@ footer {
 }
 
 .AddProductPage {
-  height: 75vh;
+  height: 100vh;
 }
 
 .LoginPage {
@@ -482,7 +482,7 @@ footer {
 .EditProductPage {
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 100vh;
 }
 
 .app-container {
