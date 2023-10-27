@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import { get } from "../services/authService";
 import { Link } from "react-router-dom";
-import Spinner from "../components/Spinner";
+import { Spinner } from "react-bootstrap";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -70,7 +70,7 @@ const AllProducts = () => {
       <br />
     </div>
   ) : (
-    <Spinner />
+    <Spinner animation="border" variant="danger"/>
     );
 };
 
