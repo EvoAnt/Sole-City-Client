@@ -498,3 +498,10 @@ footer {
   align-items: center;
   margin-bottom: 10px;
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}

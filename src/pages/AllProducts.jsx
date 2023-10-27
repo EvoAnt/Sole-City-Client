@@ -3,6 +3,7 @@ import ProductCard from "../components/ProductCard";
 import { get } from "../services/authService";
 import { Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
+import { RotatingLines } from "react-loader-spinner";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -40,8 +41,7 @@ const AllProducts = () => {
       <br />
       <h1 className="title-header">All Sneakers</h1>
 
-
-      <Link to={'/products/add-product'}>
+      <Link to={"/products/add-product"}>
         <button className="add-sneaker-button">Add Sneaker</button>
       </Link>
 
@@ -61,7 +61,7 @@ const AllProducts = () => {
           <option value="Off-White">Off-White</option>
         </select>
       </div>
-  
+
       <div className="product-cards-container">
         {filteredProducts.map((product) => (
           <ProductCard key={product._id} {...product} />
@@ -70,8 +70,20 @@ const AllProducts = () => {
       <br />
     </div>
   ) : (
-    <Spinner animation="border" variant="danger"/>
-    );
+    <div className="spinner">
+      <RotatingLines
+        height={100}
+        width={100}
+        radius={5}
+        color="#f59e0b"
+        visible={true}
+      />
+  {/* <Spinner animation="border" variant="danger">
+   <h2>Loading...</h2>
+  </Spinner> */}
+    </div>
+  );
+
 };
 
 export default AllProducts;
