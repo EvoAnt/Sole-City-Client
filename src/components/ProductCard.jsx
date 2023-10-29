@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import AddToWishlistButton from "../components/AddtoWishlistButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const ProductCard = ({
   brand,
