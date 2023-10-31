@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import { get } from "../services/authService";
 import { Link } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
 import { RotatingLines } from "react-loader-spinner";
 
 const AllProducts = () => {
@@ -36,7 +35,7 @@ const AllProducts = () => {
     setSelectedBrand(brand);
   };
 
-  return products ? (
+  return products.length > 0 ? (
     <div className="center-content">
       <br />
       <h1 className="title-header">All Sneakers</h1>
@@ -75,15 +74,11 @@ const AllProducts = () => {
         height={100}
         width={100}
         radius={5}
-        color="#f59e0b"
+        strokeColor="grey"
         visible={true}
       />
-  {/* <Spinner animation="border" variant="danger">
-   <h2>Loading...</h2>
-  </Spinner> */}
     </div>
   );
-
 };
 
 export default AllProducts;

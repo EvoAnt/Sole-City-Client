@@ -3,6 +3,7 @@ import { get, post } from "../services/authService";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { CartContext } from "../context/cart.context";
+import { RotatingLines } from "react-loader-spinner";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
@@ -54,7 +55,7 @@ const ProductDetails = () => {
     }
   };
 
-  return (
+  return product ? (
     <div className="ProductDetails">
       <br />
       <Link to="/all-products">
@@ -109,7 +110,17 @@ const ProductDetails = () => {
         </div>
       )}
     </div>
-  );
+  ) : (
+    <div className="spinner">
+      <RotatingLines
+        height={100}
+        width={100}
+        radius={5}
+        strokeColor="grey"
+        visible={true}
+      />
+    </div>
+  )
 };
 
 export default ProductDetails;
