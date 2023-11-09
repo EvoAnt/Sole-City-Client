@@ -3,6 +3,8 @@ import SearchBar from "../components/SearchBar";
 import { get } from "../services/authService";
 import ProductCard from "../components/ProductCard";
 import CarouselComponent from "../components/CarouselComponent";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -52,6 +54,14 @@ const Home = () => {
       });
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-quart",
+      delay: 0,
+      duration: 750,
+    });
+  }, []);
+
   return (
     <>
       <SearchBar onSearch={handleSearch} 
@@ -78,7 +88,7 @@ const Home = () => {
 
       <h2>NEW RELEASES</h2>
       <br />
-      <div className="new-releases-container">
+      <div data-aos="zoom-in" className="new-releases-container">
         {newest.map((result) => {
           return <ProductCard key={result._id} {...result} />;
         })}
@@ -88,7 +98,7 @@ const Home = () => {
 
       <h2>TOP SELLERS</h2>
       <br />
-      <div className="top-sellers-container">
+      <div data-aos="zoom-in" className="top-sellers-container">
         {topSellers.map((result) => {
           return <ProductCard key={result._id} {...result} />;
         })}
