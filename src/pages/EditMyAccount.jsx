@@ -8,7 +8,8 @@ const EditMyAccount = () => {
   const [userInfo, setUserInfo] = useState(null);
   const { setUser, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     // Fetch user data and populate the fields when the component loads
@@ -66,17 +67,18 @@ const EditMyAccount = () => {
   };
 
   const handleFileChange = (e) => {
-
+    setDisabled(true);
     fileChange(e)
       .then((response) => {
-        setImage(response.data.image );
-       console.log("Image changed")
+        setImage(response.data.image);
+        setDisabled(false);
+        console.log("Image changed");
       })
       .catch((err) => {
-        
+        setDisabled(false);
         console.log("Error while uploading the file: ", err);
       });
-}
+  };
   return userInfo ? (
     <div className="edit-account-container">
       <h1 className="form-title">Edit My Account</h1>
@@ -119,10 +121,10 @@ const EditMyAccount = () => {
         </div>
 
         <input type="submit" value="Update Profile" className="form-submit" />
-       <span className="button-space" />
-      <button onClick={deleteAccount} className="delete-button">
-        Delete Account
-      </button>
+        <span className="button-space" />
+        <button onClick={deleteAccount} className="delete-button">
+          Delete Account
+        </button>
       </form>
     </div>
   ) : (

@@ -13,7 +13,7 @@ const AddProduct = () => {
     image: "",
   });
 
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(false);
 
   const navigate = useNavigate();
 
@@ -40,25 +40,28 @@ const AddProduct = () => {
   };
 
   const handleFileChange = (e) => {
-    setDisabled(true)
+    setDisabled(true);
     fileChange(e)
       .then((response) => {
-        setNewProduct((prev) => ({...prev, [e.target.name]: response.data.image}))
-        setDisabled(false)
-       console.log("Image changed")
+        setNewProduct((prev) => ({
+          ...prev,
+          [e.target.name]: response.data.image,
+        }));
+        setDisabled(false);
+        console.log("Image changed");
       })
       .catch((err) => {
-        setDisabled(false)
+        setDisabled(false);
         console.log("Error while uploading the file: ", err);
       });
-}
+  };
 
   return (
     <div className="AddProductPage">
       <h1 className="form-title">Add Product</h1>
-        <Link to="/all-products">
-          <button className="back-button">Back</button>
-        </Link>
+      <Link to="/all-products">
+        <button className="back-button">Back</button>
+      </Link>
 
       <form onSubmit={handleSubmit} className="user-form">
         <div className="form-group">
